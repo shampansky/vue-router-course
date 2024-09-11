@@ -19,7 +19,7 @@ const routes = [
   { path: '/hawaii', name: 'hawaii', component: () => import('@/views/HawaiiView.vue') },
   { path: '/jamaica', name: 'jamaica', component: () => import('@/views/JamaicaView.vue') },
   { path: '/panama', name: 'panama', component: () => import('@/views/PanamaView.vue') },
-  { path: '/destination/:id', component: () => import('@/views/DestinationShow.vue') }
+  { path: '/destination/:id', name:'destination.show', component: () => import('@/views/DestinationShow.vue') }
 ]
 
 const router = createRouter({
