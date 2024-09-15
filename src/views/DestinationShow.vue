@@ -11,7 +11,7 @@
 <script setup>
 // import sourceData from '@/data.json'
 import { useRoute } from 'vue-router'
-import { ref, watchEffect } from 'vue'
+import { ref, onBeforeMount } from 'vue'
 const route = useRoute()
 
 const destination = ref(null)
@@ -21,5 +21,5 @@ const initData = async () => {
   destination.value = await res.json()
 }
 
-watchEffect(initData)
+onBeforeMount(initData)
 </script>
