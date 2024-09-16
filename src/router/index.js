@@ -7,7 +7,12 @@ const routes = [
     name: 'Home',
     component: HomeView
   },
-  { path: '/destination/:id/:slug', name:'destination.show', component: () => import('@/views/DestinationShow.vue') }
+  {
+    path: '/destination/:id/:slug',
+    name:'destination.show',
+    component: () => import('@/views/DestinationShow.vue'),
+    props: route => ({id: parseInt(route.params.id)}),
+  }
 ]
 
 const router = createRouter({

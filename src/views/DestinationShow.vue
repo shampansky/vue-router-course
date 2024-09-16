@@ -9,17 +9,27 @@
 </template>
 
 <script setup>
-// import sourceData from '@/data.json'
-import { useRoute } from 'vue-router'
-import { ref, onBeforeMount } from 'vue'
-const route = useRoute()
+import sourceData from '@/data.json'
+// import { useRoute } from 'vue-router'
+import { computed } from 'vue'
 
-const destination = ref(null)
+const props = defineProps({
+  id: {
+    type: Number,
+    required: true,
+  }
+})
 
-const initData = async () => {
-  const res = await fetch(`https://travel-dummy-api.netlify.app/${route.params.slug}.json`)
-  destination.value = await res.json()
-}
+// const route = useRoute()
 
-onBeforeMount(initData)
+const destination = computed(() => {
+  return sourceData.destinations.find(d => d.id === props.id)
+})
+
+// const initData = async () => {
+//   const res = await fetch(`https://travel-dummy-api.netlify.app/${props.id}.json`)
+//   destination.value = await res.json()
+// }
+
+// onBeforeMount(initData)
 </script>
