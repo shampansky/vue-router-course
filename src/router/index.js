@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import ExperienceShow from '@/views/ExperienceShow.vue'
 
 const routes = [
   {
@@ -13,6 +12,14 @@ const routes = [
     name: 'destination.show',
     component: () => import('@/views/DestinationShow.vue'),
     props: route => ({...route.params, id: parseInt(route.params.id)}),
+    children: [
+      {
+        path: ':experienceSlug',
+        name: 'experience.card',
+        component: () => import('@/views/ExperienceShow.vue'),
+        props: route => ({...route.params, id: parseInt(route.params.id)}),
+      }
+    ]
   },
   {
     path: '/destination/:id/:slug/:experienceSlug',
