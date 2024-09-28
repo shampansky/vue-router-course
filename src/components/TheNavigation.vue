@@ -13,6 +13,7 @@
     }">
       {{ destination.name }}
     </RouterLink>
+    <RouterLink :to="{ name: 'protected' }">Dashboard</RouterLink>
   </div>
 </template>
 
