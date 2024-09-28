@@ -13,5 +13,8 @@ const logout = () => {
   <div>
     <h1>Hello, {{ username }}</h1>
     <button @click="logout">Logout</button>
+    <RouterLink :to="{ name: 'invoices' }">
+      <button>Invoices</button>
+    </RouterLink>
   </div>
 </template>
