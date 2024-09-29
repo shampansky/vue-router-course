@@ -1,7 +1,7 @@
 <template>
   <div id="nav">
-    <RouterLink to="/" id="logo">Travel blog</RouterLink>
-    <RouterLink
+    <AppLink to="/" id="logo">Travel blog</AppLink>
+    <AppLink
       v-for="destination in destinations"
       :key="destination.id"
       :to="{
@@ -12,8 +12,9 @@
         }
     }">
       {{ destination.name }}
-    </RouterLink>
-    <RouterLink :to="{ name: 'protected' }">Dashboard</RouterLink>
+    </AppLink>
+    <AppLink :to="{ name: 'protected' }">Dashboard</AppLink>
+    <AppLink to="https://ya.ru">External Link</AppLink>
   </div>
 </template>
 
