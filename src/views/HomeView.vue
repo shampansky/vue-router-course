@@ -2,6 +2,8 @@
   <div class="home">
     <h1>All Destinations</h1>
     <button @click="triggerRouterError">Trigger Router Error</button>
+    <button @click="addDynamicRoute">Add Dynamic Route</button>
+    <RouterLink to="/dynamic">Visit Dynamic Route</RouterLink>
     <div class="destinations">
       <RouterLink
         v-for="destination in destinations"
@@ -36,5 +38,13 @@ const triggerRouterError = async () => {
   } else {
     // all is well
   }
+}
+
+const addDynamicRoute = () => {
+  router.addRoute({
+    name: 'dynamic',
+    path: '/dynamic',
+    component: () => import('@/views/LoginPage.vue'),
+  })
 }
 </script>
